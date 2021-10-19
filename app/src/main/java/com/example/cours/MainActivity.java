@@ -31,7 +31,15 @@ public void open_activity(){
             Intent intent = new Intent(this, MainActivity2.class);
             startActivity(intent);
 
+
         }
+
+    public void open_activity(){
+        Intent intent = new Intent(this, MainActivity2.class);
+        startActivity(intent);
+
+
+    }
 
 }
 
