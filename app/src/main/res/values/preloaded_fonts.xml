@@ -2,7 +2,10 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/modak</item>
+<<<<<<< HEAD
         <item>@font/roboto_black</item>
         <item>@font/roboto_thin</item>
+=======
+>>>>>>> origin/Java
     </array>
 </resources>
