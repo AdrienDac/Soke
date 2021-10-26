@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ViewpPagerApp extends AppCompatActivity {
+public class Select_music_style extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_viewp_pager_app);
+        setContentView(R.layout.activity_select_music_style);
     }
 }

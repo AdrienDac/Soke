@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cours">
         <activity
-            android:name=".ViewpPagerApp"
+            android:name=".Select_music_style"
             android:exported="true" />
         <activity
             android:name=".infos1"
@@ -27,6 +27,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
