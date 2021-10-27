@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Cours">
         <activity
             android:name=".Select_music_style"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".infos1"
             android:exported="true" />
