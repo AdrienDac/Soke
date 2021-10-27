@@ -8,21 +8,20 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="411dp"
-        android:layout_height="286dp"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
         android:background="#FF5F5F"
-        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="365dp"
         android:layout_height="126dp"
         android:layout_marginStart="87dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="88dp"
         android:fontFamily="@font/roboto_black"
         android:text="@string/select_style"
@@ -30,61 +29,43 @@
         android:textColor="#000000"
         android:textSize="48sp"
         android:textStyle="bold"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view2"
-        android:layout_width="413dp"
-        android:layout_height="446dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#2DD9FF"
-        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:visibility="visible" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="192dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:background="?selectableItemBackgroundBorderless"
-        android:textColor="@color/white"
-        android:src="@drawable/hand_1850120"
-        android:scaleType="fitXY"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ELECTRO"
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="0dp"
+        android:layout_height="124dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
+        android:src="@drawable/hand_1850120"
         android:textColor="@color/white"
-        android:fontFamily="@font/roboto_black"
-        android:textSize="36sp"
-        android:layout_gravity="center"
-        android:clickable="false"
-        app:layout_constraintTop_toTopOf="@id/imageButton"
-        app:layout_constraintRight_toRightOf="@id/imageButton"
-        app:layout_constraintLeft_toLeftOf="@id/imageButton"
-        app:layout_constraintBottom_toBottomOf="@id/imageButton"/>
-
-
-
+        app:layout_constraintEnd_toStartOf="@id/imageButton2"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="192dp"
+        android:layout_width="0dp"
         android:layout_height="124dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
@@ -95,27 +76,89 @@
 
     <ImageButton
         android:id="@+id/imageButton3"
-        android:layout_width="192dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="?selectableItemBackgroundBorderless"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:srcCompat="@drawable/k7_1936789" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="192dp"
+        android:layout_width="0dp"
         android:layout_height="124dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="?selectableItemBackgroundBorderless"
         android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:srcCompat="@drawable/k7_1936789" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="0dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-        app:srcCompat="@drawable/marley_2203513" />
+        app:layout_constraintStart_toEndOf="@id/imageButton3"
+        app:srcCompat="@drawable/marley_2203513"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/ELECTRO"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageButton"
+        app:layout_constraintLeft_toLeftOf="@id/imageButton"
+        app:layout_constraintRight_toRightOf="@id/imageButton"
+        app:layout_constraintTop_toTopOf="@id/imageButton" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/ROCK"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toStartOf="@+id/imageButton2"
+        app:layout_constraintTop_toTopOf="@+id/imageButton2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/FUNK"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+        app:layout_constraintStart_toStartOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="@+id/imageButton3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:fontFamily="@font/roboto_black"
+        android:text="@string/REGGAE"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton4"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/imageButton4"
+        app:layout_constraintTop_toTopOf="@+id/imageButton4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

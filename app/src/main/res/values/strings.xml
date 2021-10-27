@@ -9,4 +9,7 @@
     <string name="select_style">SELECT YOUR MUSIC STYLE</string>
     <string name="SOKE">SOKE</string>
     <string name="ELECTRO">ELECTRO</string>
+    <string name="ROCK">ROCK</string>
+    <string name="FUNK">FUNK</string>
+    <string name="REGGAE">REGGAE</string>
 </resources>
