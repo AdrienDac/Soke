@@ -14,9 +14,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.StartPage);
+        setContentView(R.layout.homepage);
 
-        button_1 = (Button) findViewById(R.id.button_1);
+        button_1 = (Button) findViewById(R.id.button);
         button_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 public void open_activity(){
-            Intent intent = new Intent(this, MainActivity2.class);
+            Intent intent = new Intent(this, Select_music_style.class);
             startActivity(intent);
 
 
