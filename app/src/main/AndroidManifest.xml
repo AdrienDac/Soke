@@ -8,10 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Cours">
+        android:theme="@style/Theme.Design.Light">
         <activity
             android:name=".Select_music_style"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".infos1"
             android:exported="true" />
