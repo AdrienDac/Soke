@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "721775123348",
+    "project_id": "soke-b9fb3",
+    "storage_bucket": "soke-b9fb3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721775123348:android:b8ca82af9e0bd2bb9c8d81",
+        "android_client_info": {
+          "package_name": "com.example.cours"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721775123348-vjav1tq4qg9ttv30gqq92pgjfaf9idmf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt7ix25KC5YiU_VPzrPoryXfXaXF9k5S8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721775123348-vjav1tq4qg9ttv30gqq92pgjfaf9idmf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
