@@ -11,7 +11,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_main2.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_select_music_style.xml" value="0.5" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_viewp_pager_app.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/homepage.xml" value="0.5" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/homepage.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/cours/app/src/main/res/layout/activity_infos1.xml" value="0.36231884057971014" />
         <entry key="..\:/Users/User/AndroidStudioProjects/cours/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/cours/app/src/main/res/layout/activity_main2.xml" value="0.29583333333333334" />
@@ -22,8 +22,6 @@
         <entry key="..\:/Users/adrie/Desktop/GitHub Repo/Soke/app/src/main/res/layout/activity_main.xml" value="0.360054347826087" />
         <entry key="..\:/Users/adrie/Desktop/GitHub Repo/Soke/app/src/main/res/layout/activity_main2.xml" value="0.360054347826087" />
         <entry key="..\:/Users/adrie/Desktop/GitHub Repo/Soke/app/src/main/res/layout/activity_viewp_pager_app.xml" value="0.360054347826087" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.33958333333333335" />
-        <entry key="app/src/main/res/layout/activity_select_music_style.xml" value="0.8215031315240083" />
       </map>
     </option>
   </component>
