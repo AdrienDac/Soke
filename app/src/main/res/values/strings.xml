@@ -12,4 +12,12 @@
     <string name="ROCK">ROCK</string>
     <string name="FUNK">FUNK</string>
     <string name="REGGAE">REGGAE</string>
+
+    <string-array name="fest_electro_list">
+        <item>elektrikpark</item>
+        <item>tommorowland</item>
+        <item>deltafestival</item>
+        <item>ewaxfestival</item>
+    </string-array>
+
 </resources>
