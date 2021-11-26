@@ -10,19 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
+            android:name=".layout_electro"
+            android:exported="true" />
+        <activity
             android:name=".layout_rock"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".layout_funk"
+            android:exported="true" />
         <activity
             android:name=".Select_music_style"
             android:exported="true" />
         <activity
-            android:name=".infos1"
+            android:name=".layout_reggae"
             android:exported="true" />
         <activity
-            android:name=".MainActivity2"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".Home_page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

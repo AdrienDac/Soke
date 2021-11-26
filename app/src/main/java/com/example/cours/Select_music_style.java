@@ -40,6 +40,14 @@ public class Select_music_style extends AppCompatActivity {
                 open_activity_rock();
             }
         });
+
+        electro = (ImageButton) findViewById(R.id.ImageElectro);
+        electro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                open_activity_electro();
+            }
+        });
     }
 
 
@@ -50,11 +58,17 @@ public class Select_music_style extends AppCompatActivity {
     }
 
     public void open_activity_funk(){
-        Intent intent = new Intent(this,MainActivity2.class);
+        Intent intent = new Intent(this,layout_funk.class);
         startActivity(intent);
     }
 
     public void open_activity_rock(){
-        Intent intent = new Intent(this,)
+        Intent intent = new Intent(this,layout_rock.class);
+        startActivity(intent);
+    }
+
+    public void open_activity_electro(){
+        Intent intent = new Intent(this, layout_electro.class);
+        startActivity(intent);
     }
 }

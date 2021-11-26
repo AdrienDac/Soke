@@ -4,20 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
-
-    <TextView
-        android:id="@+id/text_Activity2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/act_2"
-        android:textAlignment="center"
-        android:textSize="35dp"
-        android:textColor="@color/black"
-        android:background="@color/purple_500"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    tools:context=".layout_electro">
 
     <ScrollView
         android:id="@+id/menu_vert"
@@ -32,17 +19,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <ImageButton
                 android:id="@+id/but1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="Numero 1" />
+                android:text="Elektrik Park"
+                app:srcCompat="@drawable/logo_epk2021"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                />
 
-            <Button
+            <ImageButton
                 android:id="@+id/but2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:text="Numero 2" />
+                android:text="Numero 2"
+                app:srcCompat="@drawable/logo_tomorrow"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside" />
 
             <Button
                 android:layout_width="match_parent"
@@ -88,6 +82,4 @@
 
 
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
