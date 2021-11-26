@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class infos1 extends AppCompatActivity {
+public class layout_rock extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_infos1);
+        setContentView(R.layout.activity_layout_rock);
     }
-    
 }

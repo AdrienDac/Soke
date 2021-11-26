@@ -25,12 +25,12 @@ public class MainActivity2 extends AppCompatActivity {
         but1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open_infos1();
+                open_layout_reggae();
             }
         });
     }
-       public void open_infos1(){
-            Intent intent = new Intent(this, infos1.class);
+       public void open_layout_reggae(){
+            Intent intent = new Intent(this, layout_reggae.class);
             startActivity(intent);
         }
 

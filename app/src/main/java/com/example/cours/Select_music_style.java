@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 public class Select_music_style extends AppCompatActivity {
     private ImageButton reggae;
     private ImageButton funk;
+    private ImageButton rock;
+    private ImageButton electro;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,18 +33,28 @@ public class Select_music_style extends AppCompatActivity {
             }
         });
 
-
+        rock = (ImageButton) findViewById(R.id.ImageRock);
+        rock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                open_activity_rock();
+            }
+        });
     }
 
 
 
     public void open_activity_reggae(){
-        Intent intent = new Intent(this, infos1.class);
+        Intent intent = new Intent(this, layout_reggae.class);
         startActivity(intent);
     }
 
     public void open_activity_funk(){
         Intent intent = new Intent(this,MainActivity2.class);
         startActivity(intent);
+    }
+
+    public void open_activity_rock(){
+        Intent intent = new Intent(this,)
     }
 }

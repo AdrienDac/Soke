@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class MainActivity extends AppCompatActivity {
+public class Home_page extends AppCompatActivity {
     private ImageButton  button_1;
 
 
