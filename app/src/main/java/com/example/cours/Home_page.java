@@ -27,10 +27,8 @@ public class Home_page extends AppCompatActivity {
         });
     }
 public void open_activity(){
-            Intent intent = new Intent(this, Select_music_style.class);
+            Intent intent = new Intent(this, login.class);
             startActivity(intent);
-
-
         }
 
         //comment Adrien
