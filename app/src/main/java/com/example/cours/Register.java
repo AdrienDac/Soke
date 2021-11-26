@@ -39,7 +39,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case
+            //case
         }
     }
 }
