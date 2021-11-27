@@ -3,6 +3,7 @@ package com.example.cours;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class login extends AppCompatActivity implements View.OnClickListener {
 
     private TextView register;
+    private Button button_login;
     private Object intent;
 
     @Override
@@ -19,6 +21,15 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
         register = (TextView) findViewById(R.id.registerLogin);
         register.setOnClickListener(this);
+
+        button_login = (Button) findViewById(R.id.button_login);
+        button_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                open_activity_home();
+
+            }
+        });
     }
 
     @Override
@@ -29,5 +40,10 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 startActivity(intent);
                 break;
         }
+    }
+
+    public void open_activity_home(){
+        Intent intent = new Intent(this, New_home_page.class);
+        startActivity(intent);
     }
 }
