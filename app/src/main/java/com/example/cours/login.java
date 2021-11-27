@@ -43,7 +43,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void open_activity_home(){
-        Intent intent = new Intent(this, New_home_page.class);
+        Intent intent = new Intent(this, Select_music_style.class);
         startActivity(intent);
     }
 }

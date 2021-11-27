@@ -27,7 +27,7 @@ public class Home_page extends AppCompatActivity {
         });
     }
 public void open_activity(){
-            Intent intent = new Intent(this, login.class);
+            Intent intent = new Intent(this, New_home_page.class);
             startActivity(intent);
         }
 
