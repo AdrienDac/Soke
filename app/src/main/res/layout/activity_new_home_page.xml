@@ -10,6 +10,10 @@
         android:id="@+id/home_page_vid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <VideoView
+        android:id="@+id/login_transition"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <ImageButton
         android:id="@+id/taptocontinue"
