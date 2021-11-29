@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.internal.service.Common;
+
 public class login extends AppCompatActivity implements View.OnClickListener {
 
     private TextView register;
@@ -18,6 +20,9 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        CommonMethod.SoundPlayer(this, R.raw.resonance);
+
         setContentView(R.layout.activity_login);
 
 
@@ -39,9 +44,19 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         switch (v.getId()){
             case R.id.registerLogin:
                 Intent intent = new Intent(this, Register.class);
+
                 startActivity(intent);
                 break;
         }
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        if (CommonMethod.player.isPlaying()){
+            CommonMethod.player.stop();
+            CommonMethod.player.release();
+        }
+
     }
 
     public void open_activity_home(){
