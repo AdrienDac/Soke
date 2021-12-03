@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.gms.common.internal.service.Common;
@@ -27,9 +28,6 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     private TextView register;
     private Button button_login;
-    private ImageView back;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
 
 
 
@@ -54,23 +52,10 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             }
         });
 
-        //--------------TOOLBAR-----------------------------------------------------------------
-        Toolbar toolbar;
-        toolbar = (Toolbar)findViewById(R.id.toolbar) ;
-        setSupportActionBar(toolbar);
-
-    drawerLayout = findViewById(R.id.drawer_layout);
-    navigationView = findViewById(R.id.nav_view);
-
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,R.string.navigtion_drawer_open,R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-
     }
 
-    //--------------------------------------------------------------------------------------
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -82,20 +67,17 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     }
     @Override
     public void onBackPressed(){
-        super.onBackPressed();
-        if (CommonMethod.player.isPlaying()){
-            CommonMethod.player.stop();
-            CommonMethod.player.release();
+            super.onBackPressed();
+            if (CommonMethod.player.isPlaying()){
+                CommonMethod.player.stop();
+                CommonMethod.player.release();
         }
 
-    }
+        }
+
 
     public void open_activity_select(){
-        Intent intent = new Intent(this, Select_music_style.class);
-        startActivity(intent);
-    }
-    public void open_activity_home(){
-        Intent intent = new Intent(this, New_home_page.class);
+        Intent intent = new Intent(this, layout_electro.class);
         startActivity(intent);
     }
 
