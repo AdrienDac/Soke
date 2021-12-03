@@ -55,6 +55,7 @@ public class New_home_page extends AppCompatActivity {
             public void onClick(View v) {
                 videoView.suspend();
 
+
                 VideoView videoView1 = (VideoView) findViewById(R.id.login_transition);
                 videoView1.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.select_style));
                 videoView1.start();
