@@ -71,6 +71,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             if (CommonMethod.player.isPlaying()){
                 CommonMethod.player.stop();
                 CommonMethod.player.release();
+                open_activity_home_page();
         }
 
         }
@@ -78,6 +79,10 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     public void open_activity_select(){
         Intent intent = new Intent(this, layout_electro.class);
+        startActivity(intent);
+    }
+    public void open_activity_home_page(){
+        Intent intent = new Intent( this, New_home_page.class);
         startActivity(intent);
     }
 
