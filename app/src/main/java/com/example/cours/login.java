@@ -28,6 +28,9 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     private TextView register;
     private Button button_login;
+    private ImageView back;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
 
 
 
@@ -55,7 +58,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-
+    //--------------------------------------------------------------------------------------
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -67,17 +70,20 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     }
     @Override
     public void onBackPressed(){
-            super.onBackPressed();
-            if (CommonMethod.player.isPlaying()){
-                CommonMethod.player.stop();
-                CommonMethod.player.release();
+        super.onBackPressed();
+        if (CommonMethod.player.isPlaying()){
+            CommonMethod.player.stop();
+            CommonMethod.player.release();
         }
 
-        }
-
+    }
 
     public void open_activity_select(){
-        Intent intent = new Intent(this, layout_electro.class);
+        Intent intent = new Intent(this, Select_music_style.class);
+        startActivity(intent);
+    }
+    public void open_activity_home(){
+        Intent intent = new Intent(this, New_home_page.class);
         startActivity(intent);
     }
 
