@@ -1,13 +1,16 @@
 package com.example.cours;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class Adapter_elec extends RecyclerView.Adapter<Adapter_elec.ViewHolder_elec> {
@@ -27,11 +30,21 @@ public class Adapter_elec extends RecyclerView.Adapter<Adapter_elec.ViewHolder_e
         View view = inflater.inflate(R.layout.one_row,parent,false);
         return new ViewHolder_elec(view);
 
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder_elec holder, int position) {
-        holder.imagebutton_elctro.setImageResource(images[position]);
+    public void onBindViewHolder(@NonNull ViewHolder_elec holder, final int position) {
+        holder.MyImage.setImageResource(images[holder.getAdapterPosition()]);
+
+        holder.mainlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, infos_mainsquare.class);
+                intent.putExtra("mylogo", images[holder.getAdapterPosition()]);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -41,12 +54,15 @@ public class Adapter_elec extends RecyclerView.Adapter<Adapter_elec.ViewHolder_e
 
     public class ViewHolder_elec extends RecyclerView.ViewHolder{
 
-        ImageButton imagebutton_elctro;
+        ImageView MyImage;
+        ConstraintLayout mainlayout;
+
 
         public ViewHolder_elec(@NonNull View itemView) {
             super(itemView);
 
-            imagebutton_elctro = itemView.findViewById(R.id.imagebutton_elctro);
+            MyImage = itemView.findViewById(R.id.image);
+            mainlayout = itemView.findViewById(R.id.Constraintlayout);
         }
     }
 }

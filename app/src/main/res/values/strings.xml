@@ -13,10 +13,12 @@
     <string name="FUNK">FUNK</string>
     <string name="REGGAE">REGGAE</string>
     <string-array name="fest_electro_list">
-        <item>elektrikpark</item>
-        <item>tommorowland</item>
-        <item>deltafestival</item>
-        <item>ewaxfestival</item>
+        <item>mainsquare</item>
+        <item>hellfest</item>
+        <item>vieillescharrues</item>
+        <item>rockenseine</item>
+        <item>garorock</item>
+        <item>dreamnation</item>
     </string-array>
     <string name="navigtion_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

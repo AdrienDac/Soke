@@ -12,18 +12,17 @@ import android.media.Image;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class New_home_page extends AppCompatActivity {
-    private ImageButton taptocontinue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_new_home_page);
 
 
@@ -36,8 +35,8 @@ public class New_home_page extends AppCompatActivity {
         VideoView videoView = (VideoView) findViewById(R.id.home_page_vid);
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.test));
         videoView.start();
-
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+
         {
             @Override
             public void onPrepared(MediaPlayer mp) {
@@ -47,7 +46,7 @@ public class New_home_page extends AppCompatActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-
+        onUserLeaveHint();
 
         ImageButton taptocontinue = (ImageButton) findViewById(R.id.taptocontinue);
         taptocontinue.setOnClickListener(new View.OnClickListener() {
@@ -93,4 +92,10 @@ public class New_home_page extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onUserLeaveHint() {
+
+        super.onUserLeaveHint();
     }
+}
+

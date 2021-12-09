@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -19,6 +20,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <VideoView
+                android:id="@+id/fond_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/View_fest_electro" />
+
             <View
                 android:id="@+id/View_fest_electro"
                 android:layout_width="412dp"
@@ -29,25 +39,30 @@
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="227dp"
-                android:layout_height="112dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="90dp"
                 android:fontFamily="@font/roboto_black"
-                android:text="Prochains festivals"
+                android:text="PROCHAINS FESTIVALS"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/View_fest_electro"
-                app:layout_constraintEnd_toEndOf="@+id/View_fest_electro"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/View_fest_electro" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_elec"
                 android:layout_width="0dp"
-                android:layout_height="488dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:background="@color/white"
                 app:layout_constraintTop_toBottomOf="@+id/View_fest_electro">
 
             </androidx.recyclerview.widget.RecyclerView>

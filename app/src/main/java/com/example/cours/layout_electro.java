@@ -10,8 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.VideoView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -24,7 +27,7 @@ public class layout_electro extends AppCompatActivity {
     NavigationView navigationView;
 
     String s1[], s2[];
-    int images[] = {R.drawable.logo_epk2021, R.drawable.logo_tomorrow, R.drawable.logo_margin, R.drawable.logo_ewax_rvb_1};
+    int images[] = {R.drawable.logo_msf, R.drawable.logo_hellfest, R.drawable.logo_viellescharrues, R.drawable.logo_rockenscene, R.drawable.logo_garorock, R.drawable.logo_dreamnation};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +35,32 @@ public class layout_electro extends AppCompatActivity {
         setContentView(R.layout.activity_layout_electro);
 
         recyclerview = findViewById(R.id.recyclerview_elec);
-
         Adapter_elec adapter_elec = new Adapter_elec(this, s1, s2, images);
 
         recyclerview.setAdapter(adapter_elec);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
 
 
+
+        VideoView videoView = (VideoView) findViewById(R.id.fond_select);
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.fond1));
+        if (videoView.isPlaying()){
+            videoView.suspend();
+        }
+        videoView.start();
+
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+
         //--------------TOOLBAR-----------------------------------------------------------------
         Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 

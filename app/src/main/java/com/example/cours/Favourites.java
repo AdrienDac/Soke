@@ -67,6 +67,13 @@ public class Favourites extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+            open_activity_layout_electro();
         }
+    }
+
+    private void open_activity_layout_electro() {
+        Intent intent = new Intent(this, layout_electro.class);
+        startActivity(intent);
+
     }
 }
