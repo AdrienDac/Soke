@@ -118,6 +118,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                                     if(task.isSuccessful()){
                                         Toast.makeText(Register.this, "Le compte a bien été créé", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
+                                        if (CommonMethod.player.isPlaying()) {
+                                            CommonMethod.player.stop();
+                                            CommonMethod.player.release();
+                                        }
+                                        startActivity(new Intent(Register.this, login.class));
                                     }
                                     else{
                                         Toast.makeText(Register.this, "La création du compte a échoué", Toast.LENGTH_LONG).show();
@@ -133,5 +138,15 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         }
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (CommonMethod.player.isPlaying()) {
+            CommonMethod.player.stop();
+            CommonMethod.player.release();
+        }
+        startActivity(new Intent(Register.this, login.class));
     }
 }

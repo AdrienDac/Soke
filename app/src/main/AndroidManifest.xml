@@ -12,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
+            android:name=".WelcomeUser"
+            android:exported="true" />
+        <activity
             android:name=".infos_mainsquare"
-            android:parentActivityName=".layout_electro"
-            android:label="Details"/>
+            android:label="Details"
+            android:parentActivityName=".layout_electro" />
         <activity
             android:name=".Favourites"
             android:exported="true" />
