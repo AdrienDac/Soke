@@ -1,13 +1,17 @@
 package com.example.cours;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,7 +28,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     private TextView registerButton, banner;
-    private EditText editTextname, editTextPassword, editTextDate, editTextEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         editTextAge = (EditText) findViewById(R.id.registerDate);
         editTextEmail = (EditText) findViewById(R.id.registerEmail);
         editTextPassword =(EditText) findViewById(R.id.registerPassword);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
     }
 
