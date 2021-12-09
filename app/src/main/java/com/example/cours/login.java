@@ -28,9 +28,6 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     private TextView register;
     private Button button_login;
-    private ImageView back;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
 
 
 
@@ -76,14 +73,11 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             CommonMethod.player.release();
         }
 
+
     }
 
     public void open_activity_select(){
-        Intent intent = new Intent(this, Select_music_style.class);
-        startActivity(intent);
-    }
-    public void open_activity_home(){
-        Intent intent = new Intent(this, New_home_page.class);
+        Intent intent = new Intent(this, layout_electro.class);
         startActivity(intent);
     }
 
