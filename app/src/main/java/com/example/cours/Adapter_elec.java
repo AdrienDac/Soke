@@ -13,14 +13,22 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Adapter_elec extends RecyclerView.Adapter<Adapter_elec.ViewHolder_elec> {
 
     int images[];
     Context context;
+    ImageButton fav_button;
+    DatabaseReference favouriteref;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     public  Adapter_elec(Context ct, String s1[], String s2 [], int img[]){
         context = ct;
         images = img;
+
+
 
     }
     @NonNull

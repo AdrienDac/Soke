@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.VideoView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.lang.annotation.Native;
 
@@ -39,6 +41,9 @@ public class layout_electro extends AppCompatActivity {
 
         recyclerview.setAdapter(adapter_elec);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
 
 
@@ -80,6 +85,7 @@ public class layout_electro extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.nav_log_out:
+                        FirebaseAuth.getInstance().signOut();
                         Intent intent1 = new Intent(layout_electro.this, login.class);
                         if (CommonMethod.player.isPlaying()) {
                             CommonMethod.player.stop();

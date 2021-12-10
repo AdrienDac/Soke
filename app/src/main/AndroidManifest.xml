@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
         <activity
+            android:name=".forgot_password"
+            android:exported="true" />
+        <activity
             android:name=".WelcomeUser"
             android:exported="true" />
         <activity

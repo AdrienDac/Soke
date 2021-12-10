@@ -3,6 +3,7 @@ package com.example.cours;
 import android.app.ActionBar;
 import android.app.Notification;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -30,8 +31,9 @@ import java.util.regex.Pattern;
 
 public class login extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView register;
+    private TextView register, forgot_password;
     private Button button_login;
+
 
     private EditText editTextEmail,editTextPassword;
 
@@ -55,6 +57,9 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         register = (TextView) findViewById(R.id.registerLogin);
         register.setOnClickListener(this);
 
+        forgot_password = (TextView) findViewById(R.id.forgotPassword);
+        forgot_password.setOnClickListener(this);
+
         button_login = (Button) findViewById(R.id.button_login);
         button_login.setOnClickListener(this);
 
@@ -64,6 +69,9 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         progressBar = (ProgressBar) findViewById(R.id.progressBar2);
 
         mAuth = FirebaseAuth.getInstance();
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
 
     }
@@ -79,6 +87,9 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.button_login:
                 userLogin();
+                break;
+            case R.id.forgotPassword:
+                startActivity(new Intent(this, forgot_password.class));
                 break;
         }
     }
