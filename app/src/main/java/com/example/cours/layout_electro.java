@@ -2,6 +2,7 @@ package com.example.cours;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
@@ -17,6 +19,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,7 +36,7 @@ public class layout_electro extends AppCompatActivity {
     NavigationView navigationView;
 
     String s1[], s2[];
-    int images[] = {R.drawable.hellfest, R.drawable.hellfest, R.drawable.hellfest, R.drawable.hellfest, R.drawable.hellfest, R.drawable.hellfest};
+    int images[] = {R.drawable.hellfest, R.drawable.main_square, R.drawable.dream_beach, R.drawable.solidays};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,10 +119,31 @@ public class layout_electro extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        //super.onBackPressed();
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Déconnexion")
+                    .setMessage("Voulez vous vraiment vous déconnecter?")
+                    .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(layout_electro.this, login.class);
+                    if (CommonMethod.player.isPlaying()) {
+                        CommonMethod.player.stop();
+                        CommonMethod.player.release();
+                    }
+                    startActivity(intent);
+                }
+            })
+    .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            })
+            .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();;
         }
 
     }
