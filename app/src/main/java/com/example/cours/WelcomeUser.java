@@ -10,6 +10,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,8 @@ public class WelcomeUser extends AppCompatActivity implements View.OnClickListen
         private DatabaseReference reference;
         private String userID;
 
+        private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +46,13 @@ public class WelcomeUser extends AppCompatActivity implements View.OnClickListen
 
         final TextView welcome = (TextView) findViewById(R.id.welcome);
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar_welc);
+        progressBar.setVisibility(View.VISIBLE);
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        getWindow().setStatusBarColor(getResources().getColor(R.color.black));
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.black));
 
 
 
@@ -52,13 +61,15 @@ public class WelcomeUser extends AppCompatActivity implements View.OnClickListen
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
                 if (userProfile != null){
+                    progressBar.setVisibility(View.GONE);
                     String fullName = userProfile.fullName;
-                    welcome.setText("Welcome " + fullName);
+                    welcome.setText("Bienvenue " + fullName);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                progressBar.setVisibility(View.GONE);
                 Toast.makeText(WelcomeUser.this, "ERROR", Toast.LENGTH_LONG).show();
             }
         });

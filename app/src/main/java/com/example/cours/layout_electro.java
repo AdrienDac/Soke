@@ -65,7 +65,7 @@ public class layout_electro extends AppCompatActivity {
 
 
         VideoView videoView = (VideoView) findViewById(R.id.fond_select);
-        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.fond1));
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.fond_select));
         if (videoView.isPlaying()){
             videoView.suspend();
         }
@@ -102,17 +102,32 @@ public class layout_electro extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.nav_log_out:
-                        FirebaseAuth.getInstance().signOut();
-                        Intent intent1 = new Intent(layout_electro.this, login.class);
-                        if (CommonMethod.player.isPlaying()) {
-                            CommonMethod.player.stop();
-                            CommonMethod.player.release();
-                        }
-                        startActivity(intent1);
-                        break;
+                        new AlertDialog.Builder(layout_electro.this)
+                        .setTitle("Déconnexion")
+                                .setMessage("Voulez vous vraiment vous déconnecter?")
+                                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        FirebaseAuth.getInstance().signOut();
+                                        Intent intent = new Intent(layout_electro.this, login.class);
+                                        if (CommonMethod.player.isPlaying()) {
+                                            CommonMethod.player.stop();
+                                            CommonMethod.player.release();
+                                        }
+                                        startActivity(intent);
+                                    }
+                                })
+                                .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();;
                 }
+
+
                 return true;
             }
+
         });
     }
     //--------------------------------------------------------------------------------------
