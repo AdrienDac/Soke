@@ -1,9 +1,12 @@
 package com.example.cours;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,13 +43,17 @@ public class WelcomeUser extends AppCompatActivity implements View.OnClickListen
 
         final TextView welcome = (TextView) findViewById(R.id.welcome);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+
+
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
                 if (userProfile != null){
                     String fullName = userProfile.fullName;
-                    welcome.setText("Welcome " + fullName + " !");
+                    welcome.setText("Welcome " + fullName);
                 }
             }
 
@@ -66,6 +73,7 @@ public class WelcomeUser extends AppCompatActivity implements View.OnClickListen
                 break;
         }
     }
+
 
 
 }

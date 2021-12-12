@@ -33,7 +33,7 @@ public class New_home_page extends AppCompatActivity {
         player = MediaPlayer.create(this,R.raw.resonance);
 
         VideoView videoView = (VideoView) findViewById(R.id.home_page_vid);
-        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.test));
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.home_soke));
         videoView.start();
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
 
@@ -56,7 +56,7 @@ public class New_home_page extends AppCompatActivity {
 
 
                 VideoView videoView1 = (VideoView) findViewById(R.id.login_transition);
-                videoView1.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.select_style));
+                videoView1.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.soke_spear));
                 videoView1.start();
                 taptocontinue.setVisibility(taptocontinue.INVISIBLE);
 

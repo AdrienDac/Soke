@@ -6,19 +6,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Canvas;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.VideoView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 
 import java.lang.annotation.Native;
 
@@ -29,7 +33,7 @@ public class layout_electro extends AppCompatActivity {
     NavigationView navigationView;
 
     String s1[], s2[];
-    int images[] = {R.drawable.logo_msf, R.drawable.logo_hellfest, R.drawable.logo_viellescharrues, R.drawable.logo_rockenscene, R.drawable.logo_garorock, R.drawable.logo_dreamnation};
+    int images[] = {R.drawable.hellfest, R.drawable.hellfest, R.drawable.hellfest, R.drawable.hellfest, R.drawable.hellfest, R.drawable.hellfest};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,16 @@ public class layout_electro extends AppCompatActivity {
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+
+
+
+        recyclerview.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL) {
+            @Override
+            public void onDraw(Canvas canvas, RecyclerView parent, RecyclerView.State state) {
+                // Do not draw the divider
+            }
+        });
 
 
 

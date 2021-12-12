@@ -51,7 +51,8 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
         setContentView(R.layout.activity_login);
 
-
+        getWindow().setStatusBarColor(getResources().getColor(R.color.pink));
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.pink));
 
 
         register = (TextView) findViewById(R.id.registerLogin);
