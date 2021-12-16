@@ -55,7 +55,6 @@ public class layout_electro extends AppCompatActivity implements LifecycleObserv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_electro);
-
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
