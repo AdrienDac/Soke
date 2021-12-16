@@ -19,10 +19,12 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.android.gms.common.internal.service.Common;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +39,7 @@ public class layout_electro extends AppCompatActivity {
     RecyclerView recyclerview;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    ImageButton volume;
 
 
 
@@ -92,9 +95,26 @@ public class layout_electro extends AppCompatActivity {
         //--------------TOOLBAR-----------------------------------------------------------------
         Toolbar toolbar;
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        setSupportActionBar(toolbar);
+
+
+        volume =(ImageButton) findViewById(R.id.icon_volume);
+        volume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CommonMethod.player.isPlaying()){
+                    CommonMethod.player.pause();
+                    volume.setImageResource(R.drawable.volume_off);
+
+                }else{
+                    CommonMethod.player.start();
+                    volume.setImageResource(R.drawable.volume_up);
+                }
+            }
+        });
 
         navigationView.getItemBackground();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigtion_drawer_open, R.string.navigation_drawer_close);

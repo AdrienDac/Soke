@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable/corner_shape.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable/edit_text_shape.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable/ic__favorite.xml" value="0.3671875" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.3260416666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable/not_favourites.xml" value="0.3671875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable/volume_off.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/drawable/volume_up.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/font/press_start_2p.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/font/roboto_thin.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/font/venice_classic.xml" value="0.32135416666666666" />
@@ -16,12 +19,12 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_favourites.xml" value="0.309375" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_forgot_password.xml" value="0.33967391304347827" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_infos1.xml" value="0.67" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_infos_mainsquare.xml" value="0.5083081570996979" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_infos_mainsquare.xml" value="0.4425925925925926" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_layout_electro.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_layout_funk.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_layout_reggae.xml" value="0.19375" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_layout_rock.xml" value="0.19375" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_main2.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Soke/app/src/main/res/layout/activity_new_home_page.xml" value="0.36666666666666664" />
@@ -48,8 +51,6 @@
         <entry key="..\:/Users/adrie/Desktop/GitHub Repo/Soke/app/src/main/res/layout/activity_main.xml" value="0.360054347826087" />
         <entry key="..\:/Users/adrie/Desktop/GitHub Repo/Soke/app/src/main/res/layout/activity_main2.xml" value="0.360054347826087" />
         <entry key="..\:/Users/adrie/Desktop/GitHub Repo/Soke/app/src/main/res/layout/activity_viewp_pager_app.xml" value="0.360054347826087" />
-        <entry key="..\:/Users/adrie/StudioProjects/Soke/app/src/main/res/layout/activity_infos_mainsquare.xml" value="0.28306159420289856" />
-        <entry key="..\:/Users/adrie/StudioProjects/Soke/app/src/main/res/layout/activity_login.xml" value="0.28306159420289856" />
       </map>
     </option>
   </component>

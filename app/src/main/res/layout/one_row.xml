@@ -23,14 +23,6 @@
             app:cardPreventCornerOverlap="false"
             app:cardUseCompatPadding="true">
 
-            <ImageButton
-                android:id="@+id/fav_button"
-                android:layout_width="38dp"
-                android:layout_height="35dp"
-                android:background="@android:color/transparent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/not_favourites" />
 
             <ImageView
                 android:id="@+id/image"

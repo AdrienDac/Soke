@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +14,17 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.List;
 
 public class infos_mainsquare extends AppCompatActivity {
     ImageView logo;
@@ -39,6 +48,8 @@ public class infos_mainsquare extends AppCompatActivity {
     private FirebaseFirestore db;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +67,30 @@ public class infos_mainsquare extends AppCompatActivity {
         logo = findViewById(R.id.logo);
 
         progressBar.setVisibility(View.VISIBLE);
+        txt_lieu.setVisibility(View.GONE);
+        txt_date.setVisibility(View.GONE);
+        txt_lineup.setVisibility(View.GONE);
+        txt_name.setVisibility(View.GONE);
+
+        getWindow().setStatusBarColor(getResources().getColor(R.color.teal_200));
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.teal_200));
+
+
+        VideoView videoView = (VideoView) findViewById(R.id.video_info);
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.select_style));
+        if (videoView.isPlaying()){
+            videoView.suspend();
+        }
+        videoView.start();
+
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+
 
         getData();
         setData();
@@ -71,10 +106,17 @@ public class infos_mainsquare extends AppCompatActivity {
                 lineup = documentSnapshot.getString("lineup");
                 lieu = documentSnapshot.getString("lieu");
                 url = documentSnapshot.getString("url");
+
                 txt_date.setText(date);
                 txt_name.setText(name);
                 txt_lineup.setText(lineup);
                 txt_lieu.setText(lieu);
+
+                txt_lieu.setVisibility(View.VISIBLE);
+                txt_date.setVisibility(View.VISIBLE);
+                txt_lineup.setVisibility(View.VISIBLE);
+                txt_name.setVisibility(View.VISIBLE);
+
                 progressBar.setVisibility(View.GONE);
 
             }

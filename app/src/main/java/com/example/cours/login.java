@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -39,6 +40,8 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
+
+    private ImageButton volume;
 
 
 
@@ -74,6 +77,21 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
+        volume = (ImageButton) findViewById(R.id.volume_button);
+        volume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CommonMethod.player.isPlaying()){
+                    CommonMethod.player.pause();
+                    volume.setImageResource(R.drawable.volume_off);
+
+                }else{
+                    CommonMethod.player.start();
+                    volume.setImageResource(R.drawable.volume_up);
+
+                }
+            }
+        });
 
     }
 
