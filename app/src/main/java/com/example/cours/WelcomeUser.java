@@ -85,6 +85,12 @@ public class WelcomeUser extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-
+        if (!CommonMethod.player.isPlaying()) {
+            CommonMethod.player.start();
+        }
+    }
 }

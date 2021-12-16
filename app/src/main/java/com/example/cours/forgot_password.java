@@ -2,6 +2,10 @@ package com.example.cours;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -17,7 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class forgot_password extends AppCompatActivity {
+public class forgot_password extends AppCompatActivity implements LifecycleObserver {
 
     private EditText emailEditText;
     private Button resetPasswordButton;
@@ -29,6 +33,9 @@ public class forgot_password extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+
 
         getWindow().setStatusBarColor(getResources().getColor(R.color.pink));
         getWindow().setNavigationBarColor(getResources().getColor(R.color.pink));
@@ -77,5 +84,18 @@ public class forgot_password extends AppCompatActivity {
                 }
             }
         });
+    }
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onAppBackgrounded() {
+        CommonMethod.player.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!CommonMethod.player.isPlaying()) {
+            CommonMethod.player.start();
+        }
     }
 }

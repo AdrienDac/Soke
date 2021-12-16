@@ -2,6 +2,10 @@ package com.example.cours;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -21,19 +25,21 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class Register extends AppCompatActivity implements View.OnClickListener{
+public class Register extends AppCompatActivity implements View.OnClickListener, LifecycleObserver {
 
     private TextView registerUser;
     private EditText editTextFullName, editTextAge, editTextEmail, editTextPassword;
     private ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
-    private TextView registerButton, banner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -144,6 +150,19 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         }
                     }
                 });
+    }
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onAppBackgrounded() {
+        CommonMethod.player.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!CommonMethod.player.isPlaying()) {
+            CommonMethod.player.start();
+        }
     }
 
 }

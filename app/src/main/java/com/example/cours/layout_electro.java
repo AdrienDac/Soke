@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,7 +38,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.lang.annotation.Native;
 
-public class layout_electro extends AppCompatActivity {
+public class layout_electro extends AppCompatActivity implements LifecycleObserver {
 
     RecyclerView recyclerview;
     DrawerLayout drawerLayout;
@@ -52,6 +56,8 @@ public class layout_electro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_electro);
 
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String currentUserid = user.getUid();
 
@@ -63,6 +69,9 @@ public class layout_electro extends AppCompatActivity {
 
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        getWindow().setStatusBarColor(getResources().getColor(R.color.pink));
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.pink));
 
 
 
@@ -77,20 +86,7 @@ public class layout_electro extends AppCompatActivity {
 
 
 
-        VideoView videoView = (VideoView) findViewById(R.id.fond_select);
-        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.fond_select));
-        if (videoView.isPlaying()){
-            videoView.suspend();
-        }
-        videoView.start();
 
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.setLooping(true);
-            }
-        });
 
         //--------------TOOLBAR-----------------------------------------------------------------
         Toolbar toolbar;
@@ -161,6 +157,12 @@ public class layout_electro extends AppCompatActivity {
         });
     }
     //--------------------------------------------------------------------------------------
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onAppBackgrounded() {
+        CommonMethod.player.pause();
+    }
+
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
@@ -191,4 +193,30 @@ public class layout_electro extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!CommonMethod.player.isPlaying()) {
+            CommonMethod.player.start();
+        }
+
+        VideoView videoView = (VideoView) findViewById(R.id.fond_select);
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.fond_select));
+        if (videoView.isPlaying()){
+            videoView.suspend();
+        }
+        videoView.start();
+
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+    }
+
 }
+
+

@@ -21,6 +21,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,7 +34,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Pattern;
 
-public class login extends AppCompatActivity implements View.OnClickListener {
+public class login extends AppCompatActivity implements View.OnClickListener, LifecycleObserver {
 
     private TextView register, forgot_password;
     private Button button_login;
@@ -51,6 +55,8 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
 
         CommonMethod.SoundPlayer(this, R.raw.resonance); // ------- AUDIO ------------
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
 
         setContentView(R.layout.activity_login);
 
@@ -159,6 +165,11 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         });
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onAppBackgrounded() {
+        CommonMethod.player.pause();
+    }
+
     @Override
     public void onBackPressed(){
             super.onBackPressed();
@@ -169,6 +180,15 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             startActivity(new Intent(login.this, New_home_page.class));
 
         }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!CommonMethod.player.isPlaying()) {
+            CommonMethod.player.start();
+        }
+    }
 
 
 

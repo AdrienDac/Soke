@@ -2,6 +2,10 @@ package com.example.cours;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -26,7 +30,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
-public class infos_mainsquare extends AppCompatActivity {
+public class infos_mainsquare extends AppCompatActivity implements LifecycleObserver {
     ImageView logo;
     String s1, s2;
     int mylogo;
@@ -55,6 +59,9 @@ public class infos_mainsquare extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infos_mainsquare);
 
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+
+
         txt_name = (TextView) findViewById(R.id.fest_name);
         txt_date = (TextView) findViewById(R.id.fest_date);
         txt_lineup = (TextView) findViewById(R.id.fest_lineup);
@@ -71,25 +78,13 @@ public class infos_mainsquare extends AppCompatActivity {
         txt_date.setVisibility(View.GONE);
         txt_lineup.setVisibility(View.GONE);
         txt_name.setVisibility(View.GONE);
+        button_url.setVisibility(View.GONE);
 
         getWindow().setStatusBarColor(getResources().getColor(R.color.teal_200));
         getWindow().setNavigationBarColor(getResources().getColor(R.color.teal_200));
 
 
-        VideoView videoView = (VideoView) findViewById(R.id.video_info);
-        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.select_style));
-        if (videoView.isPlaying()){
-            videoView.suspend();
-        }
-        videoView.start();
 
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
-        {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                mp.setLooping(true);
-            }
-        });
 
 
         getData();
@@ -106,16 +101,17 @@ public class infos_mainsquare extends AppCompatActivity {
                 lineup = documentSnapshot.getString("lineup");
                 lieu = documentSnapshot.getString("lieu");
                 url = documentSnapshot.getString("url");
-
                 txt_date.setText(date);
                 txt_name.setText(name);
                 txt_lineup.setText(lineup);
                 txt_lieu.setText(lieu);
+                button_url.setText(url);
 
                 txt_lieu.setVisibility(View.VISIBLE);
                 txt_date.setVisibility(View.VISIBLE);
                 txt_lineup.setVisibility(View.VISIBLE);
                 txt_name.setVisibility(View.VISIBLE);
+                button_url.setVisibility(View.VISIBLE);
 
                 progressBar.setVisibility(View.GONE);
 
@@ -154,5 +150,34 @@ public class infos_mainsquare extends AppCompatActivity {
     private void open_activity_layout_electro() {
         Intent intent = new Intent(this, layout_electro.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!CommonMethod.player.isPlaying()) {
+            CommonMethod.player.start();
+        }
+
+        VideoView videoView = (VideoView) findViewById(R.id.video_info);
+        videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.select_style));
+        if (videoView.isPlaying()){
+            videoView.suspend();
+        }
+        videoView.start();
+
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onAppBackgrounded() {
+        CommonMethod.player.pause();
     }
 }
