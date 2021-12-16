@@ -30,6 +30,9 @@ public class infos_mainsquare extends AppCompatActivity {
     String name;
     String date;
     String lineup;
+    String lieu;
+
+    TextView txt_lieu;
     TextView txt_name;
     TextView txt_date;
     TextView txt_lineup;
@@ -46,6 +49,7 @@ public class infos_mainsquare extends AppCompatActivity {
         txt_name = (TextView) findViewById(R.id.fest_name);
         txt_date = (TextView) findViewById(R.id.fest_date);
         txt_lineup = (TextView) findViewById(R.id.fest_lineup);
+        txt_lieu = (TextView) findViewById(R.id.fest_lieu);
         progressBar = (ProgressBar) findViewById(R.id.progressBarfirestore);
 
         db = FirebaseFirestore.getInstance();
@@ -66,9 +70,11 @@ public class infos_mainsquare extends AppCompatActivity {
                 name = documentSnapshot.getString("nom");
                 date = documentSnapshot.getString("date");
                 lineup = documentSnapshot.getString("lineup");
+                lieu = documentSnapshot.getString("lieu");
                 txt_date.setText(date);
                 txt_name.setText(name);
                 txt_lineup.setText(lineup);
+                txt_lieu.setText(lieu);
                 progressBar.setVisibility(View.GONE);
 
             }
