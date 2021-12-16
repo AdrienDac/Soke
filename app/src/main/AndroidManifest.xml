@@ -20,7 +20,8 @@
         <activity
             android:name=".infos_mainsquare"
             android:label="Details"
-            android:parentActivityName=".layout_electro" />
+            android:parentActivityName=".layout_electro"
+            />
         <activity
             android:name=".Favourites"
             android:exported="true" />
@@ -38,7 +39,8 @@
             android:exported="true" />
         <activity
             android:name=".Home_page"
-            android:exported="true">
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

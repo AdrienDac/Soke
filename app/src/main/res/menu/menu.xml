@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
 
@@ -16,8 +17,8 @@
             <menu>
                 <item
                     android:id="@+id/nav_favourite"
-                    android:title="Favourites"
-                    android:icon="@drawable/ic__favorite"/>
+                    android:title="Account"
+                    android:icon="@drawable/ic__account"/>
                 <item
                     android:id="@+id/nav_log_out"
                     android:title="Log out"

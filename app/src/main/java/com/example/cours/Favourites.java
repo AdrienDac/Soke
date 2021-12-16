@@ -58,6 +58,8 @@ public class Favourites extends AppCompatActivity {
         userID = user.getUid();
         progressBar = (ProgressBar) findViewById(R.id.progressBar_profile);
         final TextView fullname_profile = (TextView) findViewById(R.id.fullname_profile);
+        final TextView age_profile = (TextView) findViewById(R.id.age_profile);
+        final TextView email_profile = (TextView) findViewById(R.id.email_profile);
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -65,7 +67,11 @@ public class Favourites extends AppCompatActivity {
                 if (userProfile != null){
                     progressBar.setVisibility(View.GONE);
                     String fullName = userProfile.fullName;
-                    fullname_profile.setText("Bienvenue " + fullName);
+                    String age = userProfile.age;
+                    String email = userProfile.email;
+                    fullname_profile.setText(fullName);
+                    age_profile.setText(age);
+                    email_profile.setText(email);
                 }
             }
 
