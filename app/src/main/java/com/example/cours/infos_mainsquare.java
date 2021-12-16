@@ -4,22 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.List;
 
 public class infos_mainsquare extends AppCompatActivity {
     ImageView logo;
@@ -31,11 +27,13 @@ public class infos_mainsquare extends AppCompatActivity {
     String date;
     String lineup;
     String lieu;
+    String url;
 
     TextView txt_lieu;
     TextView txt_name;
     TextView txt_date;
     TextView txt_lineup;
+    Button button_url;
     ProgressBar progressBar;
 
     private FirebaseFirestore db;
@@ -50,6 +48,7 @@ public class infos_mainsquare extends AppCompatActivity {
         txt_date = (TextView) findViewById(R.id.fest_date);
         txt_lineup = (TextView) findViewById(R.id.fest_lineup);
         txt_lieu = (TextView) findViewById(R.id.fest_lieu);
+        button_url = (Button) findViewById(R.id.fest_url);
         progressBar = (ProgressBar) findViewById(R.id.progressBarfirestore);
 
         db = FirebaseFirestore.getInstance();
@@ -71,6 +70,7 @@ public class infos_mainsquare extends AppCompatActivity {
                 date = documentSnapshot.getString("date");
                 lineup = documentSnapshot.getString("lineup");
                 lieu = documentSnapshot.getString("lieu");
+                url = documentSnapshot.getString("url");
                 txt_date.setText(date);
                 txt_name.setText(name);
                 txt_lineup.setText(lineup);
@@ -92,6 +92,10 @@ public class infos_mainsquare extends AppCompatActivity {
         }
     }
 
+    public void browser1 (View view){
+        Intent button_urlIntent=new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+        startActivity(button_urlIntent);
+    }
 
     private void setData() {
 
