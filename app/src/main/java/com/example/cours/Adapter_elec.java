@@ -2,6 +2,7 @@ package com.example.cours;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,17 +18,19 @@ import androidx.recyclerview.widget.RecyclerView;
 public class Adapter_elec extends RecyclerView.Adapter<Adapter_elec.ViewHolder_elec> {
 
     int images[];
+    String doc_name[];
     Context context;
-    ImageButton fav_button;
 
 
-    public  Adapter_elec(Context ct, String s1[], String s2 [], int img[]){
+    public  Adapter_elec(Context ct, String s1[], String nam [], int img[]){
         context = ct;
         images = img;
+        doc_name = nam;
 
 
 
     }
+
     @NonNull
     @Override
     public ViewHolder_elec onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,6 +50,7 @@ public class Adapter_elec extends RecyclerView.Adapter<Adapter_elec.ViewHolder_e
             public void onClick(View view) {
                 Intent intent = new Intent(context, infos_mainsquare.class);
                 intent.putExtra("mylogo", images[holder.getAdapterPosition()]);
+                intent.putExtra("doc_name", doc_name[holder.getAdapterPosition()]);
                 context.startActivity(intent);
             }
         });
@@ -54,6 +58,7 @@ public class Adapter_elec extends RecyclerView.Adapter<Adapter_elec.ViewHolder_e
 
     @Override
     public int getItemCount() {
+
         return images.length;
     }
 
@@ -67,7 +72,7 @@ public class Adapter_elec extends RecyclerView.Adapter<Adapter_elec.ViewHolder_e
             super(itemView);
 
             MyImage = itemView.findViewById(R.id.image);
-            mainlayout = itemView.findViewById(R.id.Constraintlayout);
+            mainlayout = itemView.findViewById(R.id.row);
         }
     }
 }

@@ -16,8 +16,8 @@
         android:fallbackLineSpacing="true"
         android:fontFamily="@font/press_start_2p"
         android:gravity="center"
-        android:text="Login"
-        android:textSize="20dp"
+        android:text="Se connecter"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -32,7 +32,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/edit_text_shape"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Mot de passe"
         android:paddingLeft="10dp"
         android:inputType="textPassword"
         android:minHeight="48dp"
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Forgot Password ?"
+        android:text="Mot de passe oublié ?"
         app:layout_constraintEnd_toStartOf="@+id/registerLogin"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/passwordLogin"
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="36dp"
-        android:text="Register"
+        android:text="S'inscrire"
         app:layout_constraintEnd_toEndOf="@+id/passwordLogin"
         app:layout_constraintTop_toBottomOf="@+id/passwordLogin" />
 
@@ -103,15 +103,34 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="48dp"
         android:text="宗家代"
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/emailLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="204dp"
+        android:layout_height="36dp"
+        android:fontFamily="@font/roboto_black"
+        android:gravity="center"
+        android:text="FESTIVALS"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

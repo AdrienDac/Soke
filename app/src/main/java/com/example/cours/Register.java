@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -45,6 +46,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         editTextPassword =(EditText) findViewById(R.id.registerPassword);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+        getWindow().setStatusBarColor(getResources().getColor(R.color.pink));
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.pink));
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
     }
 
@@ -140,13 +146,4 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (CommonMethod.player.isPlaying()) {
-            CommonMethod.player.stop();
-            CommonMethod.player.release();
-        }
-        startActivity(new Intent(Register.this, login.class));
-    }
 }

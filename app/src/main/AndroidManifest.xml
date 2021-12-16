@@ -37,18 +37,6 @@
             android:name=".layout_electro"
             android:exported="true" />
         <activity
-            android:name=".layout_rock"
-            android:exported="true" />
-        <activity
-            android:name=".layout_funk"
-            android:exported="true" />
-        <activity
-            android:name=".Select_music_style"
-            android:exported="true" />
-        <activity
-            android:name=".layout_reggae"
-            android:exported="true" />
-        <activity
             android:name=".Home_page"
             android:exported="true">
             <intent-filter>

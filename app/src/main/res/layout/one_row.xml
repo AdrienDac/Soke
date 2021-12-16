@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/Constraintlayout">
+    android:id="@+id/row">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             app:cardUseCompatPadding="true">
 
             <ImageButton
-                android:id="@+id/button_not_fav"
+                android:id="@+id/fav_button"
                 android:layout_width="38dp"
                 android:layout_height="35dp"
                 android:background="@android:color/transparent"

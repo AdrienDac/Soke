@@ -19,13 +19,16 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.lang.annotation.Native;
 
@@ -35,19 +38,26 @@ public class layout_electro extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-    String s1[], s2[];
+
+
+    String s1[], name[] ={"hellfest", "mainsquare", "dreambeach", "solidays"};
     int images[] = {R.drawable.hellfest, R.drawable.main_square, R.drawable.dream_beach, R.drawable.solidays};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_electro);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String currentUserid = user.getUid();
+
         recyclerview = findViewById(R.id.recyclerview_elec);
-        Adapter_elec adapter_elec = new Adapter_elec(this, s1, s2, images);
+        Adapter_elec adapter_elec = new Adapter_elec(this, s1, name, images);
 
         recyclerview.setAdapter(adapter_elec);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
+
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -131,7 +141,6 @@ public class layout_electro extends AppCompatActivity {
         });
     }
     //--------------------------------------------------------------------------------------
-
     @Override
     public void onBackPressed() {
         //super.onBackPressed();

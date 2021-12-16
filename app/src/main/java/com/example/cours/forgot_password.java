@@ -3,6 +3,7 @@ package com.example.cours;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Patterns;
@@ -28,6 +29,11 @@ public class forgot_password extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+
+        getWindow().setStatusBarColor(getResources().getColor(R.color.pink));
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.pink));
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
 
         emailEditText = (EditText) findViewById(R.id.editemail);
         resetPasswordButton = (Button) findViewById(R.id.resetmdp_button);
