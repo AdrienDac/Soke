@@ -43,7 +43,6 @@ public class layout_electro extends AppCompatActivity implements LifecycleObserv
     RecyclerView recyclerview;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ImageButton volume;
 
 
 
@@ -95,21 +94,6 @@ public class layout_electro extends AppCompatActivity implements LifecycleObserv
         navigationView = findViewById(R.id.nav_view);
         setSupportActionBar(toolbar);
 
-
-        volume =(ImageButton) findViewById(R.id.icon_volume);
-        volume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CommonMethod.player.isPlaying()){
-                    CommonMethod.player.pause();
-                    volume.setImageResource(R.drawable.volume_off);
-
-                }else{
-                    CommonMethod.player.start();
-                    volume.setImageResource(R.drawable.volume_up);
-                }
-            }
-        });
 
         navigationView.getItemBackground();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigtion_drawer_open, R.string.navigation_drawer_close);

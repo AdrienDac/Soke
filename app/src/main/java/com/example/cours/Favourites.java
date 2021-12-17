@@ -40,7 +40,6 @@ public class Favourites extends AppCompatActivity implements LifecycleObserver {
 
     private ProgressBar progressBar;
 
-    ImageButton volume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,21 +57,6 @@ public class Favourites extends AppCompatActivity implements LifecycleObserver {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-
-        volume =(ImageButton) findViewById(R.id.icon_volume);
-        volume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CommonMethod.player.isPlaying()){
-                    CommonMethod.player.pause();
-                    volume.setImageResource(R.drawable.volume_off);
-
-                }else{
-                    CommonMethod.player.start();
-                    volume.setImageResource(R.drawable.volume_up);
-                }
-            }
-        });
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigtion_drawer_open, R.string.navigation_drawer_close);

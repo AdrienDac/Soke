@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,13 +46,12 @@ public class login extends AppCompatActivity implements View.OnClickListener, Li
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
 
-    private ImageButton volume;
-
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         CommonMethod.SoundPlayer(this, R.raw.resonance); // ------- AUDIO ------------
