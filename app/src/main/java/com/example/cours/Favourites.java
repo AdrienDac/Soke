@@ -6,11 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Favourites extends AppCompatActivity {
+public class Favourites extends AppCompatActivity implements LifecycleObserver {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -35,10 +40,15 @@ public class Favourites extends AppCompatActivity {
 
     private ProgressBar progressBar;
 
+    ImageButton volume;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+
 
 
         Toolbar toolbar;
@@ -47,6 +57,22 @@ public class Favourites extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+
+
+        volume =(ImageButton) findViewById(R.id.icon_volume);
+        volume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CommonMethod.player.isPlaying()){
+                    CommonMethod.player.pause();
+                    volume.setImageResource(R.drawable.volume_off);
+
+                }else{
+                    CommonMethod.player.start();
+                    volume.setImageResource(R.drawable.volume_up);
+                }
+            }
+        });
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigtion_drawer_open, R.string.navigation_drawer_close);
@@ -121,5 +147,19 @@ public class Favourites extends AppCompatActivity {
         Intent intent = new Intent(this, layout_electro.class);
         startActivity(intent);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!CommonMethod.player.isPlaying()) {
+            CommonMethod.player.start();
+        }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onAppBackgrounded() {
+        CommonMethod.player.pause();
     }
 }

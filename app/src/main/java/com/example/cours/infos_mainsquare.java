@@ -156,10 +156,6 @@ public class infos_mainsquare extends AppCompatActivity implements LifecycleObse
     protected void onResume() {
         super.onResume();
 
-        if (!CommonMethod.player.isPlaying()) {
-            CommonMethod.player.start();
-        }
-
         VideoView videoView = (VideoView) findViewById(R.id.video_info);
         videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.select_style));
         if (videoView.isPlaying()){
@@ -179,5 +175,10 @@ public class infos_mainsquare extends AppCompatActivity implements LifecycleObse
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void onAppBackgrounded() {
         CommonMethod.player.pause();
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    public void onAppForgrounded() {
+        CommonMethod.player.start();
     }
 }

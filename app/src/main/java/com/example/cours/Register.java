@@ -14,6 +14,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener,
     private ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
+
+    ImageButton volume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,6 +14,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -28,6 +29,8 @@ public class forgot_password extends AppCompatActivity implements LifecycleObser
     private ProgressBar progressBar;
 
     FirebaseAuth auth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,7 @@ public class forgot_password extends AppCompatActivity implements LifecycleObser
                 resetPassword();
             }
         });
+
     }
 
     private void resetPassword() {

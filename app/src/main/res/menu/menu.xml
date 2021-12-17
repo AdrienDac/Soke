@@ -7,21 +7,21 @@
         <item
             android:id="@+id/nav_list_festival"
             android:icon="@drawable/list_festival"
-            android:title="Festivals list" />
+            android:title="Liste des festivals" />
 
     </group>
 
     <group android:checkableBehavior="single">
         <item
-            android:title="Profile">
+            android:title="Profil">
             <menu>
                 <item
                     android:id="@+id/nav_favourite"
-                    android:title="Account"
+                    android:title="Informations profil"
                     android:icon="@drawable/ic__account"/>
                 <item
                     android:id="@+id/nav_log_out"
-                    android:title="Log out"
+                    android:title="Se déconnecter"
                     android:icon="@drawable/log_out"/>
 
             </menu>

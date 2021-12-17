@@ -83,22 +83,6 @@ public class login extends AppCompatActivity implements View.OnClickListener, Li
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
-        volume = (ImageButton) findViewById(R.id.volume_button);
-        volume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CommonMethod.player.isPlaying()){
-                    CommonMethod.player.pause();
-                    volume.setImageResource(R.drawable.volume_off);
-
-                }else{
-                    CommonMethod.player.start();
-                    volume.setImageResource(R.drawable.volume_up);
-
-                }
-            }
-        });
-
     }
 
 
@@ -169,6 +153,7 @@ public class login extends AppCompatActivity implements View.OnClickListener, Li
     public void onAppBackgrounded() {
         CommonMethod.player.pause();
     }
+
 
     @Override
     public void onBackPressed(){
