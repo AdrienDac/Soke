@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/constr"
     tools:context=".infos_mainsquare">
 
     <ImageView
@@ -19,19 +20,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/constr2"
+        app:layout_constraintBottom_toBottomOf="@id/constr"
+        app:layout_constraintEnd_toEndOf="@id/constr"
+        app:layout_constraintStart_toStartOf="@id/constr"
         app:layout_constraintTop_toBottomOf="@+id/logo">
 
         <VideoView
             android:id="@+id/video_info"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@id/constr2"
+            app:layout_constraintEnd_toEndOf="@id/constr2"
+            app:layout_constraintStart_toStartOf="@id/constr2"
+            app:layout_constraintTop_toTopOf="@id/constr2" />
 
         <View
             android:id="@+id/view8"
