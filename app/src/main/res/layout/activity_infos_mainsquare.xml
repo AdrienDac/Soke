@@ -47,6 +47,7 @@
             android:layout_width="411dp"
             android:layout_height="126dp"
             android:background="#42FF00"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -191,13 +192,12 @@
             android:id="@+id/fest_url"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:onClick="browser1"
             android:text="SITE OFFICIEL"
-            app:layout_constraintBottom_toBottomOf="@+id/video_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
             android:id="@+id/textView4"
@@ -210,7 +210,6 @@
             android:textSize="15dp"
             android:textStyle="bold"
             android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="@+id/video_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
