@@ -9,12 +9,14 @@
 
     <Button
         android:id="@+id/nex"
-        android:layout_width="139dp"
-        android:layout_height="88dp"
+        android:layout_width="164dp"
+        android:layout_height="47dp"
         android:layout_marginBottom="128dp"
+        android:background="@drawable/edit_text_shape"
+        android:fontFamily="@font/press_start_2p"
         android:text="Commencer"
         android:textColor="@color/white"
-        android:background="@drawable/edit_text_shape"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

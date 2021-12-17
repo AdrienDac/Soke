@@ -114,13 +114,12 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="74dp"
-        android:layout_height="58dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="139dp"
+        android:layout_height="98dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:srcCompat="@drawable/crown" />
+        app:srcCompat="@drawable/logo_crown" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
